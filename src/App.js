@@ -102,8 +102,16 @@
 
 //for maps
 import React from 'react';
-import Home from '../components/Home';
+// import Home from '../components/Home';
+import Design from '../components/Design'
+import { SafeAreaView,ScrollView } from 'react-native';
 const App = () => {
-return <Home />;
+return (
+    <SafeAreaView>
+<ScrollView>
+<Design/>
+</ScrollView>
+</SafeAreaView>
+)
 };
 export default App;

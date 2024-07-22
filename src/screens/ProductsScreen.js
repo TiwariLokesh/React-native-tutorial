@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, Image, FlatList, StyleSheet } from 'react-native';
 import axios from 'axios';
 
-const Design = () => {
+const ProductsScreen = ({navigation}) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -79,4 +79,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Design;
+export default ProductsScreen;

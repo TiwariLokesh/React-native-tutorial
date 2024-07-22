@@ -21,7 +21,7 @@ const aboutName = 'AboutUs'
 const Tab = createBottomTabNavigator();
 
 
-const MainContainer = () => {
+const BottomNav = () => {
     return(
 <NavigationContainer>
     <Tab.Navigator initialRouteName={productsName}
@@ -50,4 +50,4 @@ const MainContainer = () => {
     )
 }
 
-export default MainContainer;
+export default BottomNav;

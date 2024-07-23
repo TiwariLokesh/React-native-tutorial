@@ -113,9 +113,9 @@ import BottomNav from './screens/BottomNav'
 
 const App = () => {
   return (
-    <View>
+    
     <BottomNav/>
-    </View>
+    
   )
 }
 

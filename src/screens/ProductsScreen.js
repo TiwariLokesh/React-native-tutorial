@@ -1,36 +1,66 @@
-
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, FlatList, StyleSheet } from 'react-native';
+import { View, Text, Image, FlatList, StyleSheet, Button } from 'react-native';
 import axios from 'axios';
 
-const ProductsScreen = ({navigation}) => {
+const ProductsScreen = ({ navigation }) => {
   const [products, setProducts] = useState([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get('https://dummyjson.com/products');
-        setProducts(response.data.products);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+    if (hasMore) {
+      fetchProducts(page);
+    }
+  }, [page]);
 
-    fetchProducts();
-  }, []);
+  const fetchProducts = async (page) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(`https://dummyjson.com/products?limit=10&skip=${(page - 1) * 10}`);
+      const newProducts = response.data.products;
+
+      if (newProducts.length === 0) {
+        setHasMore(false);
+      }
+
+      setProducts(prevProducts => [...prevProducts, ...newProducts]);
+
+      // Stop fetching if we have reached 30 products
+      if (products.length + newProducts.length >= 30) {
+        setHasMore(false);
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const renderProduct = ({ item }) => (
     <View style={styles.productContainer}>
       <Image
-        source={{ uri: `https://dummyjson.com/image/150` }}
+        source={{ uri: item.images[0] }}
         style={styles.productImage}
       />
       <View style={styles.productDetails}>
         <Text style={styles.productTitle}>{item.title}</Text>
-        <Text style={styles.productDescription}>{item.description}</Text>
+        <Text style={styles.productPrice}>${item.price}</Text>
       </View>
     </View>
   );
+
+  const renderFooter = () => {
+    if (loading) return <Text>Loading...</Text>;
+
+    return (
+      hasMore && (
+        <View style={styles.footer}>
+          <Button title="Load More" onPress={() => setPage(prevPage => prevPage + 1)} />
+        </View>
+      )
+    );
+  };
 
   return (
     <FlatList
@@ -38,6 +68,8 @@ const ProductsScreen = ({navigation}) => {
       renderItem={renderProduct}
       keyExtractor={item => item.id.toString()}
       contentContainerStyle={styles.container}
+      numColumns={2}
+      ListFooterComponent={renderFooter}
     />
   );
 };
@@ -47,8 +79,9 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   productContainer: {
-    flexDirection: 'row',
-    marginBottom: 20,
+    flex: 1,
+    flexDirection: 'column',
+    margin: 10,
     padding: 10,
     backgroundColor: '#fff',
     borderRadius: 10,
@@ -59,23 +92,29 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   productImage: {
-    width: 150,
-    height: 150,
+    width: '100%',
+    height: 120,
+    resizeMode: 'contain',
     borderRadius: 10,
   },
   productDetails: {
-    flex: 1,
-    marginLeft: 10,
-    justifyContent: 'center',
+    marginTop: 10,
+    alignItems: 'center',
   },
   productTitle: {
     fontSize: 18,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
-  productDescription: {
+  productPrice: {
     fontSize: 14,
     color: '#666',
     marginTop: 5,
+    textAlign: 'center',
+  },
+  footer: {
+    padding: 10,
+    alignItems: 'center',
   },
 });
 

@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const App = () => {
+const App = ({navigation}) => {
   const [selectedCountry, setSelectedCountry] = useState('Select a country');
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [checkedItems, setCheckedItems] = useState([]);
@@ -90,7 +90,7 @@ const App = () => {
 
       <View style={{marginTop:20}}>
       <Text style={styles.label}>Requirements Checklist</Text>
-      <Text style={{marginBottom: 10}}>Varify each docyument carefully</Text>
+      <Text style={{marginBottom: 10}}>Verify each document carefully</Text>
       </View>
       {['Identity Proof', 'Address Proof', 'Additional Information'].map(
         item => (
@@ -106,7 +106,7 @@ const App = () => {
                   : 'check-box-outline-blank'
               }
               size={24}
-              color="black"
+              color="green"
             />
             
             <View style={styles.checkboxLabelContainer}>
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
   },
   checkboxLabel: {
     marginLeft: 8,
-    fontSize: 16,
+    fontSize: 18,
     color: '#333',
   },
   checkboxSubLabel: {

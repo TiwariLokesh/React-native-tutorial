@@ -116,6 +116,7 @@ const App = () => {
     
     <BottomNav/>
     
+    
   )
 }
 

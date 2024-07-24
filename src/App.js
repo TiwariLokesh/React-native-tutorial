@@ -107,19 +107,49 @@
 // import Design from '../components/Design'
 
 
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import BottomNav from './screens/BottomNav'
 
-const App = () => {
+//webview
+// import { StyleSheet, Text, View,SafeAreaView } from 'react-native'
+// import {WebView} from 'react-native-webview';
+// import React from 'react'
+// // import BottomNav from './screens/BottomNav'
+
+
+
+// const App = () => {
+//   return (
+    
+//   <SafeAreaView style={styles.container}>
+//     <WebView style={{marginTop:20}} source={{uri:"https://www.wikipedia.org"}}/>
+//   </SafeAreaView>
+    
+    
+//   )
+// }
+
+// const styles = StyleSheet.create({
+// container:{
+//   flex:1,
+//   backgroundColor:'#F5FCFF'
+// }
+// })
+
+// export default App
+
+import React from 'react'
+import Mail from '../components/Mail'
+function App() {
   return (
-    
-    <BottomNav/>
-    
-    
+   <Mail/>
   )
 }
 
 export default App
 
-const styles = StyleSheet.create({})
+
+
+
+
+
+
+

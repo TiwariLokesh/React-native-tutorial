@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const App = ({navigation}) => {
+const KycScreen = ({navigation}) => {
   const [selectedCountry, setSelectedCountry] = useState('Select a country');
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [checkedItems, setCheckedItems] = useState([]);
@@ -243,4 +243,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default KycScreen;

@@ -1,13 +1,18 @@
 import React from 'react';
-import { View, Text, Image, Button, StyleSheet, ScrollView, ImageBackground } from 'react-native';
+import { View, Text, Image, Button, StyleSheet, ScrollView, ImageBackground, SafeAreaView } from 'react-native';
+import Map from './Map'; // Import the Map component
 
+const AboutUsScreen = ({navigation}) => {
+    const initialRegion = {
+        latitude: 28.704060,
+        longitude: 77.102493,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+    };
 
-const AboutUs = ({navigation}) => {
     return (
         <ScrollView style={styles.container}>
-
-         
-
+            <Text style={styles.aboutUsTitle}>About Us</Text>
 
             <View style={styles.companyInfo}>
                 <ImageBackground
@@ -21,35 +26,28 @@ const AboutUs = ({navigation}) => {
                 </ImageBackground>
             </View>
 
-
             <View style={styles.services}>
                 <ServiceItem
                     uri='https://static.vecteezy.com/system/resources/previews/007/225/199/non_2x/robot-chat-bot-concept-illustration-vector.jpg'
-                // text='Process Automation'
                 />
                 <ServiceItem
                     uri='https://cdn-icons-png.flaticon.com/512/3386/3386375.png'
-                // text='Workflow Optimization'
                 />
                 <ServiceItem
                     uri='https://icons.iconarchive.com/icons/johanchalibert/mac-osx-yosemite/512/messages-icon.png'
-                // text='Customer Experience Enhancement'
                 />
                 <ServiceItem
                     uri='https://static.vecteezy.com/system/resources/previews/024/305/294/original/data-chart-data-analytics-icon-monitoring-big-data-analysis-containing-database-free-png.png'
-                // text='Data Analytics'
                 />
                 <ServiceItem
                     uri='https://cdn-icons-png.flaticon.com/512/8956/8956157.png'
-                // text='Predictive Maintenance'
                 />
             </View>
 
             <View style={styles.mapSection}>
-                <Image
-                    source={{ uri: 'https://via.placeholder.com/400x200?text=Google+Map' }}
-                    style={styles.map}
-                />
+                <SafeAreaView style={{ flex: 1 }}>
+                    <Map initialRegion={initialRegion} />
+                </SafeAreaView>
             </View>
 
             <Button title="Get Started Today" onPress={() => { }} color="#000" />
@@ -74,10 +72,8 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold',
         color: '#333',
-        // textAlign: 'center',
         marginBottom: 20,
     },
-
     companyInfo: {
         width: '100%',
         height: 200,
@@ -96,7 +92,7 @@ const styles = StyleSheet.create({
         bottom: 0,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Optional: Adds a semi-transparent background for better text readability
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
     companyName: {
         fontSize: 22,
@@ -107,7 +103,6 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: '#fff',
     },
-
     services: {
         flexDirection: 'row',
         flex: 1,
@@ -122,20 +117,15 @@ const styles = StyleSheet.create({
         height: 50,
         marginBottom: 5,
     },
-    // serviceText: {
-    //     textAlign: 'center',
-    //     fontSize: 14,
-    //     color: '#555',
-    //     width:70
-    // },
-    mapSection: {
-        marginBottom: 20,
+    serviceText: {
+        textAlign: 'center',
+        fontSize: 14,
+        color: '#555',
     },
-    map: {
-        width: '100%',
-        height: 200,
-        backgroundColor: '#ddd',
+    mapSection: {
+        height: 300,
+        marginBottom: 20,
     },
 });
 
-export default AboutUs;
+export default AboutUsScreen;

@@ -137,10 +137,10 @@
 // export default App
 
 import React from 'react'
-import Mail from '../components/Mail'
+import Form from '../components/Form'
 function App() {
   return (
-   <Mail/>
+   <Form/>
   )
 }
 

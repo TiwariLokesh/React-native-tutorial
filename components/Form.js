@@ -12,6 +12,7 @@ const loginValidationSchema = yup.object().shape({
     .string()
     .min(8, ({ min }) => `Password must be at least ${min} characters`)
     .required('Password is required'),
+    
 });
 
 const signUpValidationSchema = yup.object().shape({

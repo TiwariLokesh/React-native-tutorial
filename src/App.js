@@ -137,14 +137,26 @@
 // export default App
 
 import React from 'react'
-import Form from '../components/Form'
+import { StyleSheet, Text,View } from 'react-native'
+
+
 function App() {
   return (
-   <Form/>
+   <View style={styles.container}>
+    <Text>The Quiz App</Text>
+   </View>
   )
 }
 
-export default App
+export default App;
+
+const styles = StyleSheet.create({
+  container:{
+    paddingTop:10,
+    paddingHorizontal:10,
+    flex:1,
+  }
+})
 
 
 

@@ -5,7 +5,6 @@
 // import { NavigationContainer } from '@react-navigation/native'
 // import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-
 // //screens
 // import Home from './screens/Home'
 // import Details from './screens/Details'
@@ -28,12 +27,12 @@
 //     // <ElevatedCards/>
 //     // <FancyCard/>
 //     // </ScrollView>
-      
+
 //     // </SafeAreaView>
 
 //     <NavigationContainer>
 //       <Stack.Navigator initialRouteName='Home'>
-// <Stack.Screen 
+// <Stack.Screen
 //   name='Home'
 //   component={Home}
 //   options={{
@@ -41,7 +40,7 @@
 //   }}
 // />
 
-// <Stack.Screen 
+// <Stack.Screen
 //   name='Details'
 //   component={Details}
 //   options={{
@@ -57,7 +56,6 @@
 
 //Drawer
 
-
 // import * as React from 'react';
 // import { Button, View } from 'react-native';
 // import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -65,7 +63,6 @@
 // import Home from './screens/Home';
 // import Details from './screens/Details';
 // import Ionicons from 'react-native-vector-icons/Ionicons';
-
 
 // function HomeScreen({ navigation }) {
 //   return (
@@ -99,14 +96,11 @@
 //   );
 // }
 
-
 //for maps
 
 // import MainContainer from './screens/MainContainer'
 // import Home from '../components/Home';
 // import Design from '../components/Design'
-
-
 
 //webview
 // import { StyleSheet, Text, View,SafeAreaView } from 'react-native'
@@ -114,16 +108,13 @@
 // import React from 'react'
 // // import BottomNav from './screens/BottomNav'
 
-
-
 // const App = () => {
 //   return (
-    
+
 //   <SafeAreaView style={styles.container}>
 //     <WebView style={{marginTop:20}} source={{uri:"https://www.wikipedia.org"}}/>
 //   </SafeAreaView>
-    
-    
+
 //   )
 // }
 
@@ -136,32 +127,23 @@
 
 // export default App
 
-import React from 'react'
-import { StyleSheet, Text,View } from 'react-native'
-import Title from '../components/Title';
-
+import React from 'react';
+import {StyleSheet,View} from 'react-native';
+import QuizHome from '../quizScreens/QuizHome';
 function App() {
   return (
-   <View style={styles.container}>
-    <Title/>
-   </View>
-  )
+    <View style={styles.container}>
+      <QuizHome/>
+    </View>
+  );
 }
 
 export default App;
 
 const styles = StyleSheet.create({
-  container:{
-    paddingTop:10,
-    paddingHorizontal:10,
-    flex:1,
-  }
-})
-
-
-
-
-
-
-
-
+  container: {
+    paddingTop: 10,
+    paddingHorizontal: 10,
+    flex: 1,
+  },
+});

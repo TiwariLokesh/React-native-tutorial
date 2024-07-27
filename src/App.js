@@ -138,12 +138,12 @@
 
 import React from 'react'
 import { StyleSheet, Text,View } from 'react-native'
-
+import Title from '../components/Title';
 
 function App() {
   return (
    <View style={styles.container}>
-    <Text>The Quiz App</Text>
+    <Title/>
    </View>
   )
 }

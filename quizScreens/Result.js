@@ -3,7 +3,7 @@ import React from 'react'
 
 const Result = ({navigation}) => {
   return (
-    <View>
+    <View style={styles.container}>
 
       
 
@@ -19,6 +19,10 @@ const Result = ({navigation}) => {
 export default Result
 
 const styles = StyleSheet.create({
+  container:{
+    paddingHorizontal:10,
+    height:'100%'
+    },
   banner: {
     width: 300,
     height: 300,

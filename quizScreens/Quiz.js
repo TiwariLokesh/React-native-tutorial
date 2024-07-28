@@ -6,7 +6,7 @@ const Quiz = ({navigation}) => {
     <View style={styles.container}>
 
       <View style={styles.top}>
-        <Text>Imagine this is a really cool question</Text>
+        <Text style={styles.question}>Q. Imagine this is a really cool question</Text>
       </View>
 
       <View style={styles.option}>
@@ -17,9 +17,9 @@ const Quiz = ({navigation}) => {
       </View>
 
       <View style={styles.bottom}>
-        <TouchableOpacity><Text>SKIP</Text></TouchableOpacity>
-        <TouchableOpacity><Text>NEXT</Text></TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Result")}><Text>END</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>SKIP</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>NEXT</Text></TouchableOpacity>
+        {/* <TouchableOpacity onPress={() => navigation.navigate("Result")}><Text>END</Text></TouchableOpacity> */}
       </View>
 
     </View>
@@ -45,5 +45,22 @@ flex:1,
     paddingVertical:16,
     justifyContent:'space-between',
     flexDirection:'row'
-  }
+  },
+  button:{
+    marginBottom:10,
+    backgroundColor:'#CC0651',
+    padding:12,
+    paddingHorizontal:40,
+    borderRadius:10,
+  },
+  buttonText:{
+fontSize:18,
+    color:'#fff',
+    fontWeight:'600'
+  },
+  question:{
+fontSize:28,
+color:'#1c1c1c'
+  },
+
 })

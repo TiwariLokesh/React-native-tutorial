@@ -131,10 +131,12 @@ import React from 'react';
 import {StyleSheet,View} from 'react-native';
 import QuizHome from '../quizScreens/QuizHome';
 import Quiz from '../quizScreens/Quiz'
+import Result from '../quizScreens/Result'
 function App() {
   return (
     <View style={styles.container}>
-      <Quiz/>
+    <Result/>
+      {/* <Quiz/> */}
     </View>
   );
 }

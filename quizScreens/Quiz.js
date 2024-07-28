@@ -6,7 +6,7 @@ const Quiz = ({navigation}) => {
   const [questions,setQuestions] = useState();
   const [ques, setQues] = useState(0);
   const getQuiz = async () => {
-   const url = 'https://opentdb.com/api.php?amount=10&category=9&type=multiple';
+   const url = 'https://opentdb.com/api.php?amount=10&category=9&type=multiple&encode=url3986';
    const res = await fetch(url); 
    const data = await res.json();
    setQuestions(data.results);
@@ -14,14 +14,18 @@ const Quiz = ({navigation}) => {
 
   useEffect(()=> {
     getQuiz();
-  },[])
+  },[]);
+
+  const handleNextPress = () => {
+    setQues(ques+1)
+  }
 
   return (
     <View style={styles.container}>
 { questions && (
   <View style={styles.parent}>
       <View style={styles.top}>
-        <Text style={styles.question}>Q. Imagine this is a really cool question</Text>
+        <Text style={styles.question}>Q. {decodeURIComponent( questions[ques].question)}</Text>
       </View>
 
       <View style={styles.option}>
@@ -33,7 +37,13 @@ const Quiz = ({navigation}) => {
 
       <View style={styles.bottom}>
         <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>SKIP</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>END</Text></TouchableOpacity>
+        {ques!==9 &&
+        <TouchableOpacity onPress={handleNextPress} style={styles.button}><Text style={styles.buttonText}>NEXT</Text></TouchableOpacity>
+        }
+
+        {ques ===9 &&
+        <TouchableOpacity onPress={()=> null} style={styles.button}><Text style={styles.buttonText}>SHOW RESULTS</Text></TouchableOpacity>
+        }
       </View>
       </View>
     )}

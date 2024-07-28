@@ -2,15 +2,17 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 
 const Result = ({navigation,route}) => {
-  const params = route.params
-  console.log(params)
+  const {score} = route.params
+ 
+  const resultBanner = score>40 ? "https://img.freepik.com/free-vector/people-celebrating-goal-achievement_23-2148823078.jpg?t=st=1722174515~exp=1722178115~hmac=28dac0fdc09e5dd3b739e34cdec33aad85f56b10ced343133cca5475a200a377&w=1060" : "https://img.freepik.com/free-vector/hand-drawn-flat-design-overwhelmed-people-illustration_23-2149352794.jpg?t=st=1722175116~exp=1722178716~hmac=d6dd6469a2c51589757339c79a74844a5fc2ea606b49d922cb09aa5fb5ee3643&w=740"
   return (
     <View style={styles.container}>
 
-      <View><Text style={styles.title}>Result</Text></View>
+      <View><Text style={styles.title}>RESULT</Text></View>
+      <View><Text style={styles.scoreValue}>{score}</Text></View>
 
       <View style={styles.bannerContainer}>
-        <Image source={{uri:'https://img.freepik.com/free-vector/appointment-booking-illustrated-concept_23-2148579431.jpg?t=st=1722107039~exp=1722110639~hmac=da7db16ad81ba67e22664c91ce530b15cb730ba9928502d9d474b76398ff01e6&w=740'}}  style={styles.banner} resizeMode='contain'/>
+        <Image source={{uri:resultBanner}}  style={styles.banner} resizeMode='contain'/>
       </View>
 
 <View><TouchableOpacity onPress={()=>navigation.navigate('Home')} style={styles.button}><Text style={styles.buttonText}>Home</Text></TouchableOpacity></View>
@@ -25,11 +27,11 @@ const styles = StyleSheet.create({
     paddingHorizontal:10,
     height:'100%',
     justifyContent:'space-around',
-    
+    paddingBottom:50
     },
   banner: {
-    width: 350,
-    height: 350,
+    width: 450,
+    height: 450,
   },
   bannerContainer:{
     justifyContent:'center',
@@ -56,6 +58,13 @@ const styles = StyleSheet.create({
     paddingHorizontal:110,
     paddingVertical:5,
     borderRadius:60,
-    backgroundColor:'#d9d9d9'
+    backgroundColor:'#d9d9d9',
+    alignSelf:'center'
       },
+      scoreValue:{
+        fontSize: 40,
+        fontWeight:'800',
+        color:'#CC0651',
+        alignSelf:'center'
+      }
 })

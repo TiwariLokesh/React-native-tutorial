@@ -26,14 +26,14 @@ const styles = StyleSheet.create({
   bannerContainer:{
     justifyContent:'center',
     alignItems:'center',
+    flex:1
   },
   container:{
   paddingHorizontal:10,
-  flex:1,
-  flexDirection:'column',
+  height:'100%'
   },
   button:{
-    marginTop:40,
+    marginBottom:60,
     justifyContent:'flex-end',
     alignItems:'flex-end',
     width:'100%',

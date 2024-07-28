@@ -15,7 +15,11 @@ const styles = StyleSheet.create({
   title:{
     fontSize: 30,
     fontWeight:'600',
-    color:'#000'
+    color:'#000',
+paddingHorizontal:110,
+paddingVertical:5,
+borderRadius:60,
+backgroundColor:'#d9d9d9'
   },
   container:{
     paddingVertical:16,

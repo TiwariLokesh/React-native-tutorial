@@ -1,10 +1,25 @@
+import React , { useEffect, useState } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+
 
 const Quiz = ({navigation}) => {
+  const [questions,setQuestions] = useState();
+  const [ques, setQues] = useState(0);
+  const getQuiz = async () => {
+   const url = 'https://opentdb.com/api.php?amount=10&category=9&type=multiple';
+   const res = await fetch(url); 
+   const data = await res.json();
+   setQuestions(data.results);
+  };
+
+  useEffect(()=> {
+    getQuiz();
+  },[])
+
   return (
     <View style={styles.container}>
-
+{ questions && (
+  <View style={styles.parent}>
       <View style={styles.top}>
         <Text style={styles.question}>Q. Imagine this is a really cool question</Text>
       </View>
@@ -19,9 +34,9 @@ const Quiz = ({navigation}) => {
       <View style={styles.bottom}>
         <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>SKIP</Text></TouchableOpacity>
         <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>END</Text></TouchableOpacity>
-        {/* <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Result")}><Text style={styles.buttonText}>NEXT</Text></TouchableOpacity> */}
       </View>
-
+      </View>
+    )}
     </View>
   )
 }
@@ -75,4 +90,7 @@ backgroundColor:'#ef476f',
 paddingHorizontal:12,
 borderRadius:12
 },
+parent:{
+  height:'100%'
+}
 })

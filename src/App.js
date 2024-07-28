@@ -132,11 +132,14 @@ import {StyleSheet,View} from 'react-native';
 import QuizHome from '../quizScreens/QuizHome';
 import Quiz from '../quizScreens/Quiz'
 import Result from '../quizScreens/Result'
+import { NavigationContainer } from '@react-navigation/native';
+import MyStack from '../navigation';
 function App() {
   return (
     <View style={styles.container}>
-    <Result/>
-      {/* <Quiz/> */}
+    <NavigationContainer>
+      <MyStack />
+    </NavigationContainer>
     </View>
   );
 }

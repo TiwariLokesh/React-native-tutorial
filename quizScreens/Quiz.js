@@ -10,16 +10,16 @@ const Quiz = ({navigation}) => {
       </View>
 
       <View style={styles.option}>
-      <TouchableOpacity><Text>Cool Option 1</Text></TouchableOpacity>
-      <TouchableOpacity><Text>Cool Option 2</Text></TouchableOpacity>
-      <TouchableOpacity><Text>Cool Option 3</Text></TouchableOpacity>
-      <TouchableOpacity><Text>Cool Option 4</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.optionButton}><Text style={styles.optionText}>Cool Option 1</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.optionButton}><Text style={styles.optionText}>Cool Option 2</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.optionButton}><Text style={styles.optionText}>Cool Option 3</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.optionButton}><Text style={styles.optionText}>Cool Option 4</Text></TouchableOpacity>
       </View>
 
       <View style={styles.bottom}>
         <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>SKIP</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>NEXT</Text></TouchableOpacity>
-        {/* <TouchableOpacity onPress={() => navigation.navigate("Result")}><Text>END</Text></TouchableOpacity> */}
+        <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>END</Text></TouchableOpacity>
+        {/* <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Result")}><Text style={styles.buttonText}>NEXT</Text></TouchableOpacity> */}
       </View>
 
     </View>
@@ -50,7 +50,7 @@ flex:1,
     marginBottom:10,
     backgroundColor:'#CC0651',
     padding:12,
-    paddingHorizontal:40,
+    paddingHorizontal:30,
     borderRadius:10,
   },
   buttonText:{
@@ -62,5 +62,17 @@ fontSize:18,
 fontSize:28,
 color:'#1c1c1c'
   },
+optionText:{
+fontSize:18,
+fontWeight:'500',
+color:'#fff'
 
+},
+optionButton:{
+paddingVertical:14,
+marginVertical:8,
+backgroundColor:'#ef476f',
+paddingHorizontal:12,
+borderRadius:12
+},
 })

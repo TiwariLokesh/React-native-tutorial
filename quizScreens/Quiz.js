@@ -173,8 +173,10 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   timer: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: '700',
     color: '#1c1c1c',
+    marginBottom:30,
+    alignSelf:'center'
   },
 });

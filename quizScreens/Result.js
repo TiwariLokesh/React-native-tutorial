@@ -1,10 +1,9 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-
 const Result = ({navigation,route}) => {
   const {score} = route.params
  
-  const resultBanner = score>40 ? "https://img.freepik.com/free-vector/people-celebrating-goal-achievement_23-2148823078.jpg?t=st=1722174515~exp=1722178115~hmac=28dac0fdc09e5dd3b739e34cdec33aad85f56b10ced343133cca5475a200a377&w=1060" : "https://img.freepik.com/free-vector/hand-drawn-flat-design-overwhelmed-people-illustration_23-2149352794.jpg?t=st=1722175116~exp=1722178716~hmac=d6dd6469a2c51589757339c79a74844a5fc2ea606b49d922cb09aa5fb5ee3643&w=740"
+  const resultBanner = score>30 ? "https://img.freepik.com/free-vector/people-celebrating-goal-achievement_23-2148823078.jpg?t=st=1722174515~exp=1722178115~hmac=28dac0fdc09e5dd3b739e34cdec33aad85f56b10ced343133cca5475a200a377&w=1060" : "https://img.freepik.com/free-vector/hand-drawn-flat-design-overwhelmed-people-illustration_23-2149352794.jpg?t=st=1722175116~exp=1722178716~hmac=d6dd6469a2c51589757339c79a74844a5fc2ea606b49d922cb09aa5fb5ee3643&w=740"
   return (
     <View style={styles.container}>
 
@@ -27,7 +26,8 @@ const styles = StyleSheet.create({
     paddingHorizontal:10,
     height:'100%',
     justifyContent:'space-around',
-    paddingBottom:50
+    paddingBottom:50,
+    backgroundColor:'#fff'
     },
   banner: {
     width: 450,

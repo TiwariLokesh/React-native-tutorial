@@ -15,13 +15,17 @@ const Quiz = ({navigation}) => {
   const [ques, setQues] = useState(0);
   const [options, setOptions] = useState([]);
 const [score,setScore] = useState(0);
+const [isLoading,setIsLoading] = useState(false);
+
 
   const getQuiz = async () => {
+    setIsLoading(true)
    const url = 'https://opentdb.com/api.php?amount=10&category=9&type=multiple&encode=url3986';
    const res = await fetch(url); 
    const data = await res.json();
    setQuestions(data.results);
    setOptions(generateOptionsAndShuffle(data.results[0]))
+   setIsLoading(false)
   };
 
   useEffect(()=> {
@@ -61,7 +65,7 @@ return options
 
   return (
     <View style={styles.container}>
-{ questions && (
+{isLoading ? <View style={{display:'flex',justifyContent:'center',alignItems:'center',height:'100%'}}><Text style={{fontSize:32,fontWeight:'700'}}>LOADING...</Text></View> : questions && (
   <View style={styles.parent}>
       <View style={styles.top}>
         <Text style={styles.question}>Q. {decodeURIComponent( questions[ques].question)}</Text>

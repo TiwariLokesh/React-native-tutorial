@@ -4,6 +4,7 @@ import QuizHome from '../quizScreens/QuizHome';
 import Quiz from '../quizScreens/Quiz';
 import Result from '../quizScreens/Result';
 
+
 const Stack = createStackNavigator();
 
 function MyStack() {

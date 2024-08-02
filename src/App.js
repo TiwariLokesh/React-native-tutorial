@@ -134,22 +134,24 @@ import Quiz from '../quizScreens/Quiz'
 import Result from '../quizScreens/Result'
 import { NavigationContainer } from '@react-navigation/native';
 import MyStack from '../navigation';
+import Payment from '../components/Payment';
 function App() {
   return (
-    <View style={styles.container}>
-    <NavigationContainer>
-      <MyStack />
-    </NavigationContainer>
-    </View>
+    // <View style={styles.container}>
+    // <NavigationContainer>
+    //   <MyStack />
+    // </NavigationContainer>
+    // </View>
+    <Payment/>
   );
 }
 
 export default App;
 
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 10,
-    paddingHorizontal: 10,
-    flex: 1,
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     paddingTop: 10,
+//     paddingHorizontal: 10,
+//     flex: 1,
+//   },
+// });

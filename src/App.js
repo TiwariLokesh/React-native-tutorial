@@ -134,7 +134,10 @@ import Quiz from '../quizScreens/Quiz'
 import Result from '../quizScreens/Result'
 import { NavigationContainer } from '@react-navigation/native';
 import MyStack from '../navigation';
-import Payment from '../components/Payment';
+import {StripeProvider } from '@stripe/stripe-react-native';
+import PaymentScreen from '../components/PaymentScreen';
+
+
 function App() {
   return (
     // <View style={styles.container}>
@@ -142,7 +145,10 @@ function App() {
     //   <MyStack />
     // </NavigationContainer>
     // </View>
-    <Payment/>
+    <StripeProvider publishableKey="pk_test_51PgO3MCsFbF0FBd0w0E3jyrIEcZTELgcvJrFk8pjKb3irPqS2YCYLdYi3ytefvsJZBgJ2hmIXRXckDw5XkXNIEKj00p4lnvsYY">
+    <PaymentScreen/>
+  </StripeProvider>
+
   );
 }
 

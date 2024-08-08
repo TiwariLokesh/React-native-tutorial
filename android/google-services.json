@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1068097898949",
+    "project_id": "firstproject-55c8e",
+    "storage_bucket": "firstproject-55c8e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068097898949:android:a7fd2ca3b2fb9594e563ac",
+        "android_client_info": {
+          "package_name": "com.tutorial"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMkXNVKQc9KeJUB-xwDUN7q4iW2KjCp10"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -116,6 +116,7 @@ const Crud = () => {
         onChangeText={setAge}
         keyboardType="numeric"
       />
+      
       <TextInput
         style={styles.input}
         placeholder="Email"
